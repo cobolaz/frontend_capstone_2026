@@ -1,0 +1,42 @@
+@page "/product-test"
+@using MyBlazorApp.Models
+@inject CartClient CartClient
+
+<h2>Product Test Page</h2>
+
+<div class="product-grid">
+    @foreach (var item in Products)
+    {
+        <ProductCard Product="item" OnAddToCart="HandleAddToCart" />
+    }
+</div>
+
+<h3>Cart Items</h3>
+
+<ul>
+    @foreach (var item in CartItems)
+    {
+        <li>@item.Name - $@item.Price</li>
+    }
+</ul>
+
+@code {
+    private List<Product> Products = new();
+    private List<Product> CartItems = new();
+
+    protected override void OnInitialized()
+    {
+        Products = new List<Product>
+        {
+            new Product { ProductID = 1, Name = "Laptop", Price = 999.99m, Category = "Electronics" },
+            new Product { ProductID = 2, Name = "Headphones", Price = 199.99m, Category = "Audio" },
+            new Product { ProductID = 3, Name = "Keyboard", Price = 89.99m, Category = "Accessories" }
+        };
+    }
+
+    private async Task HandleAddToCart(Product product)
+    {
+        await CartClient.AddProductAsync(product);
+        CartItems.Add(product);
+    }
+}

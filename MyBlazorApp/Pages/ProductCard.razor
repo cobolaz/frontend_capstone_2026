@@ -1,0 +1,25 @@
+@using MyBlazorApp.Models
+
+<div class="product-card">
+    <h3>@Product.Name</h3>
+
+    <p><strong>Price:</strong> $@Product.Price</p>
+    <p><strong>Category:</strong> @Product.Category</p>
+
+    <button class="btn btn-primary" @onclick="AddToCart">
+        Add to Cart
+    </button>
+</div>
+
+@code {
+    [Parameter]
+    public Product Product { get; set; }
+
+    [Parameter]
+    public EventCallback<Product> OnAddToCart { get; set; }
+
+    private async Task AddToCart()
+    {
+        await OnAddToCart.InvokeAsync(Product);
+    }
+}
