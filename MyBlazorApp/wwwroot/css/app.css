@@ -113,3 +113,151 @@ code {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
+/* ================================
+   Base Product Card Styles
+================================ */
+.product-card {
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 260px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.product-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.product-card p {
+    margin: 6px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.product-card button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+}
+
+/* ================================
+   Product Grid Layout
+================================ */
+.product-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    padding: 20px;
+}
+
+/* ================================
+   Mobile (max-width: 768px)
+================================ */
+@media (max-width: 768px) {
+    .product-card {
+        width: 100%;
+        padding: 16px;
+    }
+
+    .product-card h3 {
+        font-size: 1.15rem;
+    }
+
+    .product-card p {
+        font-size: 0.9rem;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* ================================
+   Tablet (max-width: 1024px)
+================================ */
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+    }
+
+    .product-card {
+        width: 100%;
+    }
+}
+
+/* ================================
+   Desktop (min-width: 1025px)
+================================ */
+@media (min-width: 1025px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+    }
+}
+
+/* ================================
+   Accessibility Enhancements
+================================ */
+
+/* Improve link contrast */
+a, .btn-link {
+    color: #005a99; /* darker blue for better contrast */
+}
+
+/* High-contrast primary button */
+.btn-primary {
+    background-color: #0f5ca8;
+    border-color: #0d4f90;
+    color: #ffffff;
+}
+
+/* Strong visible focus outline for keyboard navigation */
+button:focus,
+.product-card button:focus,
+a:focus,
+.btn:focus,
+.btn-link:focus {
+    outline: 3px solid #258cfb;
+    outline-offset: 3px;
+}
+
+/* ProductCard focus state */
+.product-card:focus-within {
+    box-shadow: 0 0 0 3px #258cfb;
+    border-color: #258cfb;
+}
+
+/* Ensure hover and focus states meet contrast requirements */
+.product-card button:hover,
+.product-card button:focus {
+    background-color: #0d4f90;
+}
+
+/* Improve text readability */
+.product-card h3,
+.product-card p {
+    color: #222; /* darker text for contrast */
+}
+
+/* Larger tap targets on mobile */
+@media (max-width: 768px) {
+    .product-card button {
+        padding: 14px;
+        font-size: 1rem;
+    }
+}
+
