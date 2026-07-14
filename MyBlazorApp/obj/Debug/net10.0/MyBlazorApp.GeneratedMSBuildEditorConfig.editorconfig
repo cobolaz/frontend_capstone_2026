@@ -48,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvZHVjdENhcmQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/workspaces/frontend_capstone_2026/MyBlazorApp/Pages/ProductForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvZHVjdEZvcm0ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/workspaces/frontend_capstone_2026/MyBlazorApp/Pages/ProductTest.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUHJvZHVjdFRlc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 

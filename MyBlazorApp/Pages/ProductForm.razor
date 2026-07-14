@@ -1,0 +1,7 @@
+private async Task HandleSubmit()
+{
+    Product.Name = InputSanitizer.Clean(Product.Name);
+    Product.Category = InputSanitizer.Clean(Product.Category);
+
+    await CartClient.AddProductAsync(Product);
+}
